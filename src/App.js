@@ -28,11 +28,10 @@ const people = [
   },
 ];
 
-const greetings ={
-  lang: ["de","en","es","fr"],
-  children: ["Ludwig" , "François"],
-  
-}
+const greetings = {
+  lang: ['de', 'en', 'es', 'fr'],
+  children: ['Ludwig', 'François'],
+};
 
 function App() {
   return (
@@ -53,11 +52,15 @@ function App() {
         })}
       </div>
       <div>
-        {greetings.children.map((element, index) => {
-          return (<Greetings (element === "Ludwig" ?  greetings.lang = "de" : greetings.lang = "fr")/>
-        )})}
-        </div>
-      
+        {greetings.children.map((element) => {
+          return (
+            <Greetings
+              children={element}
+              lang={element === 'Ludwig' ? 'de' : 'fr' }
+            ></Greetings>
+          );
+        })}
+      </div>
     </div>
   );
 }
