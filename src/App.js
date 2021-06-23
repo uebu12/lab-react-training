@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import IdCard from './IdCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Greetings from './Greetings';
-import { property } from 'lodash';
+// import { property } from 'lodash';
+import Random from './Random';
 // import DriveCard from './DriveCard';
 // import CreditCard from './CreditCard';
 // import BoxColor from './BoxColor';
@@ -33,6 +33,8 @@ const greetings = {
   children: ['Ludwig', 'François'],
 };
 
+const maxNumber = [6, 100];
+
 function App() {
   return (
     <div className="App">
@@ -52,13 +54,22 @@ function App() {
         })}
       </div>
       <div>
-        {greetings.children.map((element) => {
-          return (
-            <Greetings
-              children={element}
-              lang={element === 'Ludwig' ? 'de' : 'fr' }
-            ></Greetings>
-          );
+        <h1 className="title">Greetings</h1>
+        <div className="d-flex flex-column px-2">
+          {greetings.children.map((element) => {
+            return (
+              <Greetings
+                children={element}
+                lang={element === 'Ludwig' ? 'de' : 'fr'}
+              ></Greetings>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <h1>Random</h1>
+        {maxNumber.map((element) => {
+          return <Random max={element} min="1"></Random>;
         })}
       </div>
     </div>
