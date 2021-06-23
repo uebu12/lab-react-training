@@ -9,7 +9,6 @@ import Random from './Random';
 import CreditCard from './CreditCard';
 import BoxColor from './BoxColor';
 
-
 const people = [
   {
     lastName: 'Doe',
@@ -33,7 +32,10 @@ const greetings = {
   lang: ['de', 'en', 'es', 'fr'],
   children: ['Ludwig', 'François'],
 };
-const rgbRef = [ { r: 255, g: 0, b: 0 }, { r: 128, g: 255, b: 0 }, ]; 
+const rgbRef = [
+  { r: 255, g: 0, b: 0 },
+  { r: 128, g: 255, b: 0 },
+];
 
 const maxNumber = [6, 100];
 
@@ -73,8 +75,8 @@ const creditCardsInfos = [
 function App() {
   return (
     <div className="App">
-      <h1>IdCard</h1>
-      <div className="container">
+      <h1 className="title">IdCard</h1>
+      <div className="d-flex flex-column px-2">
         {people.map((person) => {
           return (
             <IdCard
@@ -101,13 +103,26 @@ function App() {
           })}
         </div>
       </div>
+
       <div>
-        <h1>Random</h1>
-        {maxNumber.map((element) => {
-          return <Random max={element} min="1"></Random>;
-        })}
+        <h1 className="title">Random</h1>
+        <div className="d-flex flex-column px-2">
+          {maxNumber.map((element) => {
+            return <Random max={element} min="1"></Random>;
+          })}
+        </div>
       </div>
-      <div> <h1>BoxColor</h1> {rgbRef.map((element) => { return ( <BoxColor r={element.r} g={element.g} b={element.b}></BoxColor> ); })} </div> 
+      <div>
+        {' '}
+        <h1 className="title">BoxColor</h1>{' '}
+        <div className="boxColor">
+          {rgbRef.map((element) => {
+            return (
+              <BoxColor r={element.r} g={element.g} b={element.b}></BoxColor>
+            );
+          })}
+        </div>{' '}
+      </div>
       <div>
         <h1>CreditCard</h1>
         <div>
