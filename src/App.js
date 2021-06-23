@@ -6,8 +6,9 @@ import Greetings from './Greetings';
 // import { property } from 'lodash';
 import Random from './Random';
 // import DriveCard from './DriveCard';
-// import CreditCard from './CreditCard';
+import CreditCard from './CreditCard';
 import BoxColor from './BoxColor';
+
 
 const people = [
   {
@@ -35,6 +36,39 @@ const greetings = {
 const rgbRef = [ { r: 255, g: 0, b: 0 }, { r: 128, g: 255, b: 0 }, ]; 
 
 const maxNumber = [6, 100];
+
+const creditCardsInfos = [
+  {
+    type: 'Visa',
+    number: '0123456789018845',
+    expirationMonth: 3,
+    expirationYear: 2021,
+    bank: 'BNP',
+    owner: 'Maxence Bouret',
+    bgColor: '#11aa99',
+    color: 'white',
+  },
+  {
+    type: 'MasterCard',
+    number: '0123456789010995',
+    expirationMonth: 3,
+    expirationYear: 2021,
+    bank: 'N26',
+    owner: 'Maxence Bouret',
+    bgColor: '#eeeeee',
+    color: '#222222',
+  },
+  {
+    type: 'Visa',
+    number: '0123456789016984',
+    expirationMonth: 12,
+    expirationYear: 2019,
+    bank: 'Name of the Bank',
+    owner: 'Firstname Lastname',
+    bgColor: '#ddbb55',
+    color: 'white',
+  },
+];
 
 function App() {
   return (
@@ -74,6 +108,25 @@ function App() {
         })}
       </div>
       <div> <h1>BoxColor</h1> {rgbRef.map((element) => { return ( <BoxColor r={element.r} g={element.g} b={element.b}></BoxColor> ); })} </div> 
+      <div>
+        <h1>CreditCard</h1>
+        <div>
+          {creditCardsInfos.map((element) => {
+            return (
+              <CreditCard
+                type={element.type}
+                number={element.number}
+                expirationMonth={element.expirationMonth}
+                expirationYear={element.expirationYear}
+                bank={element.bank}
+                owner={element.owner}
+                bgColor={element.bgColor}
+                color={element.color}
+              ></CreditCard>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
