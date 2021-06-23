@@ -7,7 +7,7 @@ import Greetings from './Greetings';
 import Random from './Random';
 // import DriveCard from './DriveCard';
 // import CreditCard from './CreditCard';
-// import BoxColor from './BoxColor';
+import BoxColor from './BoxColor';
 
 const people = [
   {
@@ -32,6 +32,7 @@ const greetings = {
   lang: ['de', 'en', 'es', 'fr'],
   children: ['Ludwig', 'François'],
 };
+const rgbRef = [ { r: 255, g: 0, b: 0 }, { r: 128, g: 255, b: 0 }, ]; 
 
 const maxNumber = [6, 100];
 
@@ -72,6 +73,7 @@ function App() {
           return <Random max={element} min="1"></Random>;
         })}
       </div>
+      <div> <h1>BoxColor</h1> {rgbRef.map((element) => { return ( <BoxColor r={element.r} g={element.g} b={element.b}></BoxColor> ); })} </div> 
     </div>
   );
 }
